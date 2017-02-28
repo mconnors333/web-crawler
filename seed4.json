@@ -10,7 +10,7 @@
 },
 {
 "address":"http://foo.bar.com/p3",
-"links": ["http://foo.bar.com/p4"]
+"links": ["http://foo.bar.com/p4", "http://foo.bar.com/p2", "http://foo.bar.com/p6"]
 },
 {
 "address":"http://foo.bar.com/p4",
@@ -30,11 +30,7 @@
 },
 {
 "address":"http://foo.bar.com/p8",
-"links": ["http://foo.bar.com/p3"]
-},
-{
-"address":"http://foo.bar.com/p9",
-"links": ["http://foo.bar.com/p10"]
+"links": ["http://foo.bar.com/p9", "http://foo.bar.com/p6"]
 }
 ]
 }

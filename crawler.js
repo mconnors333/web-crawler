@@ -58,7 +58,7 @@ function removeDuplicateErrors(error) {
   var sortedError = error.sort()
 
   for (var l = 0; l < errorLength; l++) {
-      if (skipped[l + 1] == skipped[l]) {
+      if (error[l + 1] == error[l]) {
         error.splice(l, 1)
     }
   }
