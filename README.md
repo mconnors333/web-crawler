@@ -22,6 +22,8 @@ Test Data 2: Output is as expected.
 Test Data 3: After writing a new test case that had multiple errors of the same
 page.  I noticed that I was getting duplicates like I had for the skipped array.
 I went back and added a removeDuplicateErrors function to handle that. Still
-same issue as Test Case 1.
+same issue as Test Case 1. Might fix it with a triple nested loop to iterate
+through addresses, the current pages links, the next pages links, etc until it
+finds a duplicate in a sub pages links section.
 
 Test Data 4:  Output is as expected
