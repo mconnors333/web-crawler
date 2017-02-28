@@ -1,6 +1,8 @@
 // Import seed data
 var testDataOne = require('./seed1.json')
 var testDataTwo = require('./seed2.json')
+var testDataThree = require('./seed3.json')
+var testDataFour = require('./seed4.json')
 
 // Set Variables
 var success = []
@@ -51,6 +53,17 @@ function findErrors(visited, success) {
   }
 }
 
+function removeDuplicateErrors(error) {
+  var errorLength = error.length
+  var sortedError = error.sort()
+
+  for (var l = 0; l < errorLength; l++) {
+      if (skipped[l + 1] == skipped[l]) {
+        error.splice(l, 1)
+    }
+  }
+}
+
 function findSkipped(visited) {
   var visitedLength = visited.length
   var sortedVisited = visited.sort()
@@ -93,6 +106,8 @@ function crawl(testData) {
 
   findErrors(visited, success)
 
+  removeDuplicateErrors(error)
+
   findSkipped(visited)
 
   removeSkippedDuplicates(skipped)
@@ -115,3 +130,23 @@ console.log('');
 console.log('*****Test-Two*****')
 console.log('');
 crawl(testDataTwo)
+
+var success = []
+var skipped = []
+var error = []
+var visited = []
+
+console.log('');
+console.log('*****Test-Three*****')
+console.log('');
+crawl(testDataThree)
+
+var success = []
+var skipped = []
+var error = []
+var visited = []
+
+console.log('');
+console.log('*****Test-Four*****')
+console.log('');
+crawl(testDataFour)
