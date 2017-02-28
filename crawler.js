@@ -52,16 +52,17 @@ function findErrors(visited, success) {
     }
   }
 }
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
 
 function removeDuplicateErrors(error) {
   var errorLength = error.length
   var sortedError = error.sort()
 
-  for (var l = 0; l < errorLength; l++) {
-      if (error[l + 1] == error[l]) {
-        error.splice(l, 1)
-    }
-  }
+  var unique = error.filter( onlyUnique )
+
+  return unique
 }
 
 function findSkipped(visited) {
@@ -77,16 +78,22 @@ function findSkipped(visited) {
 }
 
 function removeSkippedDuplicates(skipped) {
-  skippedLength = skipped.length
-  // REMOVE DUPLICATE SKIPS
-  for (var l = 0; l < skippedLength; l++) {
-      if (skipped[l + 1] == skipped[l]) {
-        skipped.splice(l, 1)
-    }
-  }
+  // skippedLength = skipped.length
+  // // REMOVE DUPLICATE SKIPS
+  // for (var l = 0; l < skippedLength; l++) {
+  //     if (skipped[l + 1] == skipped[l]) {
+  //       skipped.splice(l, 1)
+  //   }
+  // }
+
+  var skippedLength = skipped.length
+
+  var unique = skipped.filter( onlyUnique )
+
+  return unique
 }
 
-function logSolution(success, skipped, error) {
+function logSolution(success, skipped, unique) {
   console.log('Success:')
   console.log(success)
   console.log('Skipped:')
@@ -106,11 +113,11 @@ function crawl(testData) {
 
   findErrors(visited, success)
 
-  removeDuplicateErrors(error)
+  error = removeDuplicateErrors(error)
 
   findSkipped(visited)
 
-  removeSkippedDuplicates(skipped)
+  skipped = removeSkippedDuplicates(skipped)
 
   logSolution(success, skipped, error)
 }

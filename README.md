@@ -26,4 +26,10 @@ same issue as Test Case 1. Might fix it with a triple nested loop to iterate
 through addresses, the current pages links, the next pages links, etc until it
 finds a duplicate in a sub pages links section.
 
+Found another issue after writing test.  If duplicates > 2, the duplicate
+will not be spliced out.
+
+**rewrote both findDuplicate functions to find only unique values within an
+array.
+
 Test Data 4:  Output is as expected
