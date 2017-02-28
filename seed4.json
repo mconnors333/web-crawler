@@ -18,7 +18,7 @@
 },
 {
 "address":"http://foo.bar.com/p5",
-"links": ["http://foo.bar.com/p1"]
+"links": ["http://foo.bar.com/p1", "http://foo.bar.com/p10", "http://foo.bar.com/p4"]
 },
 {
 "address":"http://foo.bar.com/p6",
