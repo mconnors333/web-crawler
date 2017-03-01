@@ -1,6 +1,12 @@
 # Web-Crawler
-
-run the code by running the following in the command line
+To test:
+Run the following in the command line
+```
+jasmine spec/crawlSpec.js
+```
+To Run Program:
+First uncomment the Run Program section in crawler.js
+Then run the code by running the following in the command line
 ```
 node crawler.js
 ```
