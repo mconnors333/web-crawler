@@ -52,3 +52,30 @@ describe("Duplicate function Tests", function() {
     expect(answer).toEqual(duplicateSkippedSuccess)
   })
 })
+
+describe("findSkipped", function() {
+  it('should find repeated links and add them to skipped array', function() {
+    var skippedAnswer = [
+      'http://foo.bar.com/p2',
+      'http://foo.bar.com/p4',
+      'http://foo.bar.com/p1',
+      'http://foo.bar.com/p5' ]
+
+    var visited = [
+      'http://foo.bar.com/p2',
+      'http://foo.bar.com/p3',
+      'http://foo.bar.com/p4',
+      'http://foo.bar.com/p2',
+      'http://foo.bar.com/p4',
+      'http://foo.bar.com/p5',
+      'http://foo.bar.com/p1',
+      'http://foo.bar.com/p6',
+      'http://foo.bar.com/p7',
+      'http://foo.bar.com/p4',
+      'http://foo.bar.com/p5' ]
+
+    var skipped = crawler.findSkipped(visited)
+    var answer = crawler.removeSkippedDuplicates(skipped)
+      expect(answer).toEqual(skippedAnswer)
+  })
+})

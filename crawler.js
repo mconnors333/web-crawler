@@ -219,6 +219,7 @@ module.exports = {
         skipped.push(sortedVisited[j])
       }
     }
+    return skipped
   },
 
   removeSkippedDuplicates: function(skipped) {
