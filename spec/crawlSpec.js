@@ -79,3 +79,34 @@ describe("findSkipped", function() {
       expect(answer).toEqual(skippedAnswer)
   })
 })
+
+describe("removeGhostLinks", function() {
+  it("should remove any addresses that weren't previously visited in a link", function() {
+    var ghostLinkAnswer = [
+      'http://foo.bar.com/p1',
+      'http://foo.bar.com/p2',
+      'http://foo.bar.com/p3',
+      'http://foo.bar.com/p4',
+      'http://foo.bar.com/p5' ]
+
+    var success = [
+      'http://foo.bar.com/p1',
+      'http://foo.bar.com/p2',
+      'http://foo.bar.com/p3',
+      'http://foo.bar.com/p4',
+      'http://foo.bar.com/p5',
+      'http://foo.bar.com/p6']
+
+    var visited = [
+      'http://foo.bar.com/p2',
+      'http://foo.bar.com/p3',
+      'http://foo.bar.com/p4',
+      'http://foo.bar.com/p5',
+      'http://foo.bar.com/p1',
+      'http://foo.bar.com/p1' ]
+
+    var answer = crawler.removeGhostLinks(success, visited)
+
+    expect(answer).toEqual(ghostLinkAnswer)
+  })
+})

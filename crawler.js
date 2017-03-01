@@ -127,9 +127,9 @@ function crawl(testData) {
 // var visited = []
 //
 // console.log('');
-// console.log('*****Test-Two*****')
-// console.log('');
-// crawl(testDataTwo)
+console.log('*****Test-Two*****')
+console.log('');
+crawl(testDataTwo)
 //
 // var success = []
 // var skipped = []
@@ -177,6 +177,7 @@ module.exports = {
         success.splice(p, 1)
       }
     }
+    return success
   },
 
   findErrors: function(visited, success) {
