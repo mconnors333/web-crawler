@@ -4,18 +4,20 @@ var testDataThree = require('../seed3.json')
 var testDataFour = require('../seed4.json')
 var crawler = require('../crawler.js')
 
-crawler.crawl(testDataOne)
+describe("Duplicate function Tests", function() {
+  it('should remove Duplicate errors', function() {
+    var duplicateErrorTest = [1,2,3,1,1]
+    var duplicateErrorSuccess = [1,2,3]
 
-// describe("Crawl function Solutions", function() {
-//   it('should equal solutionOneSuccess', function() {
-//     var solutionOneSuccess =
-//
-//     expect(crawler.crawl(testDataOne).toEqual(solutionOneSuccess))
-//   })
-//
-//   it('should equal solutionTwoSuccess', function() {
-//     var solutionTwoSuccess =
-//
-//     expect(crawler.crawl(testDataTwo).toEqual(solutionTwoSuccess))
-//   })
-// })
+    var answer = crawler.removeDuplicateErrors(duplicateErrorTest)
+    expect(answer).toEqual(duplicateErrorSuccess)
+  })
+
+  it('should remove Duplicate skipped', function() {
+    var duplicateSkippedTest = [1,2,3,1,1,2,4,6]
+    var duplicateSkippedSuccess = [1,2,3,4,6]
+
+    var answer = crawler.removeSkippedDuplicates(duplicateSkippedTest)
+    expect(answer).toEqual(duplicateSkippedSuccess)
+  })
+})
