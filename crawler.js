@@ -193,6 +193,7 @@ module.exports = {
         error.push(visited[m])
       }
     }
+    return error
   },
 
   onlyUnique: function(value, index, self) {
